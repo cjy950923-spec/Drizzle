@@ -1,0 +1,26 @@
+@import "../../design-tokens/tokens.css";
+@import "../../design-tokens/typography.css";
+@import "../../design-tokens/icons.css";
+
+:root {
+  --runtime-safe-area-bottom: 0px;
+  --runtime-nav-margin-x: 0px;
+}
+
+html[data-runtime="webview"] {
+  --runtime-safe-area-bottom: env(safe-area-inset-bottom, 0px);
+  --runtime-nav-margin-x: var(--layout-drizzle-nav-margin-x);
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--color-white);
+  color: var(--color-text-default);
+}
+
+* {
+  box-sizing: border-box;
+}
+

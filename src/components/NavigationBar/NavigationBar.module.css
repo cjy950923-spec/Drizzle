@@ -1,0 +1,110 @@
+/* Figma 99:4621 — bar 306×60; side slots flex-fill + p10; tab/review hug */
+.bar {
+  width: 306px;
+  height: 60px;
+  box-sizing: border-box;
+  background: var(--color-white);
+  border-radius: 10000px;
+  box-shadow: var(--shadow-navigation-bar);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* Drizzle 메인: 좌우 19px 마진 안에서 가로 fill */
+.barFill {
+  width: 100%;
+  max-width: 100%;
+}
+
+.sideSlot {
+  flex: 1 0 0;
+  min-width: 0;
+  padding: 10px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tab {
+  width: 24px;
+  flex-shrink: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+
+.iconWrap {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.iconHome {
+  display: block;
+  width: 24px;
+  height: 24px;
+}
+
+.iconFeed {
+  display: block;
+  width: 23px;
+  height: 24px;
+}
+
+.label {
+  width: 24px;
+  text-align: center;
+  font-family: var(--typo-component-caption-font-family);
+  font-size: var(--typo-component-caption-font-size);
+  font-weight: var(--typo-component-caption-font-weight);
+  letter-spacing: var(--typo-component-caption-letter-spacing);
+  line-height: var(--typo-component-caption-line-height);
+}
+
+.labelActive {
+  color: var(--color-gray-08);
+}
+
+.labelInactive {
+  color: var(--color-icon-muted);
+}
+
+.iconWrapActive {
+  color: var(--color-gray-08);
+}
+
+.iconWrapInactive {
+  color: var(--color-icon-light);
+}
+
+.review {
+  flex-shrink: 0;
+  padding: 9px;
+  border: 0;
+  border-radius: 8px;
+  background: var(--color-gray-01);
+  color: var(--color-gray-06);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+.reviewIcon {
+  display: block;
+  width: 24px;
+  height: 24px;
+}

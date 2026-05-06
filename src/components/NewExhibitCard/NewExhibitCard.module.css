@@ -1,0 +1,77 @@
+/* Figma 102:4767 / 91:3886 — New exhibit (fill container) */
+.root {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  gap: var(--gap-exhibit-new-thumb-text);
+}
+
+.image {
+  width: 120px;
+  height: 120px;
+  flex: 0 0 auto;
+  background-color: var(--color-exhibit-media-placeholder);
+  background-size: cover;
+  background-position: center;
+}
+
+.content {
+  flex: 1 1 0;
+  min-width: 0;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.titleBlock {
+  width: 100%;
+  padding-bottom: var(--padding-exhibit-new-after-title);
+  box-sizing: border-box;
+}
+
+.title {
+  margin: 0;
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: var(--color-exhibit-title);
+  font-family: var(--typo-heading-sm-font-family);
+  font-size: var(--typo-heading-sm-font-size);
+  font-weight: var(--typo-heading-sm-font-weight);
+  line-height: var(--typo-heading-sm-line-height);
+  letter-spacing: var(--typo-heading-sm-letter-spacing);
+}
+
+.detailsBlock {
+  width: 100%;
+  padding-bottom: var(--padding-exhibit-new-after-details);
+  box-sizing: border-box;
+}
+
+.details {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0;
+  width: 100%;
+}
+
+.detailsLine {
+  margin: 0;
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: var(--color-exhibit-meta);
+  font-family: var(--typo-body-sm-font-family);
+  font-size: var(--typo-body-sm-font-size);
+  font-weight: var(--typo-body-sm-font-weight);
+  line-height: var(--typo-body-sm-line-height);
+  letter-spacing: var(--typo-body-sm-letter-spacing);
+}

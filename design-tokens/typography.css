@@ -1,0 +1,94 @@
+@import "./tokens.css";
+
+.typo-title-strong {
+  font-family: var(--typo-title-strong-font-family);
+  font-size: var(--typo-title-strong-font-size);
+  font-weight: var(--typo-title-strong-font-weight);
+  line-height: var(--typo-title-strong-line-height);
+  letter-spacing: var(--typo-title-strong-letter-spacing);
+  color: var(--color-text-default);
+}
+
+.typo-title {
+  font-family: var(--typo-title-font-family);
+  font-size: var(--typo-title-font-size);
+  font-weight: var(--typo-title-font-weight);
+  line-height: var(--typo-title-line-height);
+  letter-spacing: var(--typo-title-letter-spacing);
+  color: var(--color-text-default);
+}
+
+.typo-heading {
+  font-family: var(--typo-heading-font-family);
+  font-size: var(--typo-heading-font-size);
+  font-weight: var(--typo-heading-font-weight);
+  line-height: var(--typo-heading-line-height);
+  letter-spacing: var(--typo-heading-letter-spacing);
+  color: var(--color-text-default);
+}
+
+.typo-heading-sm {
+  font-family: var(--typo-heading-sm-font-family);
+  font-size: var(--typo-heading-sm-font-size);
+  font-weight: var(--typo-heading-sm-font-weight);
+  line-height: var(--typo-heading-sm-line-height);
+  letter-spacing: var(--typo-heading-sm-letter-spacing);
+  color: var(--color-text-default);
+}
+
+.typo-body-base-strong {
+  font-family: var(--typo-body-base-strong-font-family);
+  font-size: var(--typo-body-base-strong-font-size);
+  font-weight: var(--typo-body-base-strong-font-weight);
+  line-height: var(--typo-body-base-strong-line-height);
+  letter-spacing: var(--typo-body-base-strong-letter-spacing);
+  color: var(--color-text-default);
+}
+
+.typo-body-base {
+  font-family: var(--typo-body-base-font-family);
+  font-size: var(--typo-body-base-font-size);
+  font-weight: var(--typo-body-base-font-weight);
+  line-height: var(--typo-body-base-line-height);
+  letter-spacing: var(--typo-body-base-letter-spacing);
+  color: var(--color-text-default);
+}
+
+.typo-body-sm-strong {
+  font-family: var(--typo-body-sm-strong-font-family);
+  font-size: var(--typo-body-sm-strong-font-size);
+  font-weight: var(--typo-body-sm-strong-font-weight);
+  line-height: var(--typo-body-sm-strong-line-height);
+  letter-spacing: var(--typo-body-sm-strong-letter-spacing);
+  color: var(--color-text-default);
+}
+
+.typo-body-sm {
+  font-family: var(--typo-body-sm-font-family);
+  font-size: var(--typo-body-sm-font-size);
+  font-weight: var(--typo-body-sm-font-weight);
+  line-height: var(--typo-body-sm-line-height);
+  letter-spacing: var(--typo-body-sm-letter-spacing);
+  color: var(--color-text-default);
+}
+
+.typo-component-body {
+  font-family: var(--typo-component-body-font-family);
+  font-size: var(--typo-component-body-font-size);
+  font-weight: var(--typo-component-body-font-weight);
+  line-height: var(--typo-component-body-line-height);
+  letter-spacing: var(--typo-component-body-letter-spacing);
+  text-align: center;
+  color: var(--color-text-default);
+}
+
+.typo-component-caption {
+  font-family: var(--typo-component-caption-font-family);
+  font-size: var(--typo-component-caption-font-size);
+  font-weight: var(--typo-component-caption-font-weight);
+  line-height: var(--typo-component-caption-line-height);
+  letter-spacing: var(--typo-component-caption-letter-spacing);
+  text-align: center;
+  color: var(--color-text-default);
+}
+

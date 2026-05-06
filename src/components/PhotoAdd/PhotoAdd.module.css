@@ -1,0 +1,39 @@
+/* Figma 93:4061 Photo Add — 100 dashed gray_03, padding 23/17, inner 66 gap 6 */
+.root {
+  width: 100px;
+  height: 100px;
+  padding: 23px 17px;
+  box-sizing: border-box;
+  background: var(--color-white);
+  border: 1px dashed var(--color-gray-03);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  cursor: pointer;
+}
+
+.inner {
+  width: 66px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+.icon {
+  width: 30px;
+  height: 30px;
+  display: block;
+}
+
+.root .label {
+  color: var(--color-media-muted);
+  white-space: nowrap;
+  font-family: var(--typo-body-sm-strong-font-family);
+  font-size: var(--typo-body-sm-strong-font-size);
+  font-weight: var(--typo-body-sm-strong-font-weight);
+  line-height: var(--typo-body-sm-strong-line-height);
+  letter-spacing: var(--typo-body-sm-strong-letter-spacing);
+}

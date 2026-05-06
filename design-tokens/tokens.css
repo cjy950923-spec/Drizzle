@@ -1,0 +1,136 @@
+:root {
+  /* Colors — extracted from Figma node 102:4765 */
+  --color-white: #ffffff;
+
+  --color-gray-10: #1a1a1a;
+  --color-gray-09: #313131;
+  --color-gray-08: #474747;
+  --color-gray-07: #5f5f5f;
+  --color-gray-06: #787878;
+  --color-gray-05: #929292;
+  --color-gray-04: #adadad;
+  --color-gray-03: #c8c8c8;
+  --color-gray-02: #e4e4e4;
+  --color-gray-01: #f3f3f4;
+
+  /* Elevation — Navigation bar Figma 99:4621 */
+  --shadow-navigation-bar: 0 4px 24px 7px rgba(0, 0, 0, 0.06);
+
+  /* Overlay / Modal — Alert section (122:767) companion UI */
+  --color-overlay-scrim: rgba(26, 26, 26, 0.45);
+  --shadow-modal: 0 12px 48px rgba(0, 0, 0, 0.14);
+  --radius-modal: 10px;
+  --radius-toast: 8px;
+  --radius-alert: 8px;
+
+  /* Exhibit — Figma 102:4767 (Recommended / New / Coming soon) */
+  --color-exhibit-media-placeholder: #eeeeee;
+  --color-exhibit-title: var(--color-gray-10);
+  --color-exhibit-meta: var(--color-gray-08);
+  --gap-exhibit-recommended-stack: 10px;
+  --gap-exhibit-recommended-meta: 6px;
+  --gap-exhibit-new-thumb-text: 24px;
+  --padding-exhibit-new-after-title: 8px;
+  --padding-exhibit-new-after-details: 12px;
+  --gap-exhibit-coming-outer: 10px;
+  --gap-exhibit-coming-thumb-meta: 24px;
+  --gap-exhibit-coming-meta: 8px;
+
+  /* Picture feed placeholder icon / Photo Add label — Figma Gray scale 400 #BDBDBD (12:4270, 93:4061) */
+  --color-media-muted: #bdbdbd;
+
+  /* Text default color in the typography samples */
+  --color-text-default: #010101;
+
+  /* Main screen hero gradient top — Figma 88:300 */
+  --color-main-screen-gradient-start: #f5f5f5;
+
+  /* Drizzle 메인 */
+  --layout-hybrid-app-width: 393px;
+  /* 콘텐츠 좌우 그리드 — 항상 16px */
+  --layout-drizzle-gutter-x: 16px;
+  /* 하단 네비: 화면 가장자리 대비 좌우 여백 */
+  --layout-drizzle-nav-margin-x: 30px;
+  --layout-drizzle-nav-bottom-offset: 34px;
+  /* 모바일 셸 너비 클램프 */
+  --layout-drizzle-mobile-min: 340px;
+  --layout-drizzle-mobile-max: 640px;
+
+  /* Typography — extracted from Figma node 102:4765 */
+  --font-family-pretendard: Pretendard, ui-sans-serif, system-ui, -apple-system,
+    "Segoe UI", Roboto, "Helvetica Neue", Arial, "Apple SD Gothic Neo",
+    "Noto Sans KR", "Malgun Gothic", sans-serif;
+  --font-family-inter: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI",
+    Roboto, "Helvetica Neue", Arial, sans-serif;
+
+  /* Title Strong / 22 / Bold */
+  --typo-title-strong-font-family: var(--font-family-pretendard);
+  --typo-title-strong-font-size: 22px;
+  --typo-title-strong-font-weight: 700;
+  --typo-title-strong-line-height: 1.5;
+  --typo-title-strong-letter-spacing: 0px;
+
+  /* Title / 20 / Regular */
+  --typo-title-font-family: var(--font-family-pretendard);
+  --typo-title-font-size: 20px;
+  --typo-title-font-weight: 400;
+  --typo-title-line-height: 1.5;
+  --typo-title-letter-spacing: 0px;
+
+  /* Heading / 16 / Semibold */
+  --typo-heading-font-family: var(--font-family-pretendard);
+  --typo-heading-font-size: 16px;
+  --typo-heading-font-weight: 600;
+  --typo-heading-line-height: 1.5;
+  --typo-heading-letter-spacing: 0px;
+
+  /* Heading Small / 16 / Regular */
+  --typo-heading-sm-font-family: var(--font-family-pretendard);
+  --typo-heading-sm-font-size: 16px;
+  --typo-heading-sm-font-weight: 400;
+  --typo-heading-sm-line-height: 1.5;
+  --typo-heading-sm-letter-spacing: 0px;
+
+  /* Body Base Strong / 14 / Semibold (Inter in Figma) */
+  --typo-body-base-strong-font-family: var(--font-family-inter);
+  --typo-body-base-strong-font-size: 14px;
+  --typo-body-base-strong-font-weight: 600;
+  --typo-body-base-strong-line-height: 1.5;
+  --typo-body-base-strong-letter-spacing: 0px;
+
+  /* Body Base / 14 / Medium */
+  --typo-body-base-font-family: var(--font-family-pretendard);
+  --typo-body-base-font-size: 14px;
+  --typo-body-base-font-weight: 500;
+  --typo-body-base-line-height: 1.5;
+  --typo-body-base-letter-spacing: 0px;
+
+  /* Body Small Strong / 12 / Medium */
+  --typo-body-sm-strong-font-family: var(--font-family-pretendard);
+  --typo-body-sm-strong-font-size: 12px;
+  --typo-body-sm-strong-font-weight: 500;
+  --typo-body-sm-strong-line-height: 1.5;
+  --typo-body-sm-strong-letter-spacing: 0px;
+
+  /* Body Small / 12 / Regular */
+  --typo-body-sm-font-family: var(--font-family-pretendard);
+  --typo-body-sm-font-size: 12px;
+  --typo-body-sm-font-weight: 400;
+  --typo-body-sm-line-height: 1.5;
+  --typo-body-sm-letter-spacing: 0px;
+
+  /* Component / Body / 14 / Medium (center, line-height 1.4) */
+  --typo-component-body-font-family: var(--font-family-pretendard);
+  --typo-component-body-font-size: 14px;
+  --typo-component-body-font-weight: 500;
+  --typo-component-body-line-height: 1.4;
+  --typo-component-body-letter-spacing: 0px;
+
+  /* Component / Caption / 10 / Regular (center, line-height 1.4) */
+  --typo-component-caption-font-family: var(--font-family-pretendard);
+  --typo-component-caption-font-size: 10px;
+  --typo-component-caption-font-weight: 400;
+  --typo-component-caption-line-height: 1.4;
+  --typo-component-caption-letter-spacing: 0px;
+}
+

@@ -1,0 +1,70 @@
+/* Figma 102:4767 / 91:3948 — Coming soon exhibit (fill container) */
+.root {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: var(--gap-exhibit-coming-outer);
+}
+
+.left {
+  flex: 1 1 0;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: var(--gap-exhibit-coming-thumb-meta);
+}
+
+.thumb {
+  width: 64px;
+  height: 64px;
+  flex: 0 0 auto;
+  background-color: var(--color-exhibit-media-placeholder);
+  background-size: cover;
+  background-position: center;
+}
+
+.meta {
+  flex: 1 1 0;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--gap-exhibit-coming-meta);
+  justify-content: center;
+}
+
+.metaTitle {
+  margin: 0;
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: var(--color-exhibit-title);
+  font-family: var(--typo-heading-sm-font-family);
+  font-size: var(--typo-heading-sm-font-size);
+  font-weight: var(--typo-heading-sm-font-weight);
+  line-height: var(--typo-heading-sm-line-height);
+  letter-spacing: var(--typo-heading-sm-letter-spacing);
+}
+
+.metaSub {
+  margin: 0;
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: var(--color-exhibit-meta);
+  font-family: var(--typo-body-sm-font-family);
+  font-size: var(--typo-body-sm-font-size);
+  font-weight: var(--typo-body-sm-font-weight);
+  line-height: var(--typo-body-sm-line-height);
+  letter-spacing: var(--typo-body-sm-letter-spacing);
+}
+
+.dday {
+  flex: 0 0 auto;
+}

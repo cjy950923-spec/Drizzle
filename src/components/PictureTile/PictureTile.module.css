@@ -1,0 +1,30 @@
+/* Figma 12:4270 Picture feed — 배경 #eee, 중앙 40×40 placeholder; 비율별 서브픽셀 정렬 */
+.root {
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+  box-sizing: border-box;
+  background-color: var(--color-exhibit-media-placeholder);
+  background-size: cover;
+  background-position: center;
+}
+
+.placeholder {
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  display: block;
+}
+
+/* 16:9, 2:3 */
+.placeholderShiftX {
+  left: calc(50% + 0.5px);
+}
+
+/* 4:5 */
+.placeholderShiftY {
+  top: calc(50% - 0.5px);
+}

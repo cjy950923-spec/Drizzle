@@ -1,0 +1,36 @@
+/* 92×92 layout slot; shadows may paint outside — do not use <img> (clips SVG filters). */
+.root {
+  width: 92px;
+  height: 92px;
+  position: relative;
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  overflow: visible;
+  line-height: 0;
+}
+
+.svgHost {
+  display: block;
+  width: 92px;
+  height: 92px;
+  overflow: visible;
+}
+
+.svgHost svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+/*
+ * sunny-mostly-cloudy.svg만 viewBox가 260×196으로 가로가 김.
+ * 정사각 슬롯 92×92에서 meet 스케일이 가로(92/260)에 맞춰져 그림 세로가 ~69px로 줄어듦.
+ * 세로를 슬롯에 맞추도록 가로비만 보정(그림자는 overflow: visible).
+ */
+.root[data-weather="sunny-mostly-cloudy"] .svgHost svg {
+  transform: scale(calc(260 / 196));
+  transform-origin: 50% 50%;
+}

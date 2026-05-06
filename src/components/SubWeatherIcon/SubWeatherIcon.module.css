@@ -1,0 +1,111 @@
+/* Figma 16:5486 — 16×16 */
+.root {
+  width: 16px;
+  height: 16px;
+  position: relative;
+  flex-shrink: 0;
+  box-sizing: border-box;
+  color: var(--color-gray-10);
+}
+
+.vector {
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+}
+
+/* --- humidity (16:5484) --- */
+.humidityLayer1Wrap {
+  position: absolute;
+  inset: 8.33% 14.58%;
+}
+
+.humidityLayer1Inner {
+  position: absolute;
+  top: -3.75%;
+  right: -4.41%;
+  bottom: -3.75%;
+  left: -4.41%;
+}
+
+.humidityLayer2Wrap {
+  position: absolute;
+  top: 50%;
+  right: 16.67%;
+  bottom: 37.5%;
+  left: 16.67%;
+}
+
+.humidityLayer2Inner {
+  position: absolute;
+  top: -25%;
+  right: -4.69%;
+  bottom: -25%;
+  left: -4.69%;
+}
+
+/* --- fast-wind (16:5485) --- */
+.fastWindLayer1Wrap {
+  position: absolute;
+  top: 12.5%;
+  right: 50%;
+  bottom: 66.67%;
+  left: 8.33%;
+}
+
+.fastWindLayer1Inner {
+  position: absolute;
+  top: -15%;
+  right: -7.5%;
+  bottom: -15%;
+  left: -7.5%;
+}
+
+.fastWindLayer2Wrap {
+  position: absolute;
+  top: 25%;
+  right: 8.33%;
+  bottom: 45.83%;
+  left: 16.67%;
+}
+
+.fastWindLayer2Inner {
+  position: absolute;
+  top: -10.71%;
+  right: -4.17%;
+  bottom: -10.71%;
+  left: -4.17%;
+}
+
+.fastWindLayer3Wrap {
+  position: absolute;
+  top: 66.67%;
+  right: 33.33%;
+  bottom: 12.5%;
+  left: 8.33%;
+}
+
+.fastWindLayer3Inner {
+  position: absolute;
+  top: -15%;
+  right: -5.36%;
+  bottom: -15%;
+  left: -5.36%;
+}
+
+.fastWindLayer4Wrap {
+  position: absolute;
+  top: 64.58%;
+  right: 12.5%;
+  bottom: 35.42%;
+  left: 79.17%;
+}
+
+.fastWindLayer4Inner {
+  position: absolute;
+  top: -0.5px;
+  right: -37.5%;
+  bottom: -0.5px;
+  left: -37.5%;
+}

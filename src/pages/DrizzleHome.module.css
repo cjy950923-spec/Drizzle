@@ -1,0 +1,326 @@
+/*
+ * Drizzle 메인
+ * - 웹(≥600px): 셸 393px 고정
+ * - 모바일: 너비 min(340) / max(640) 클램프 + 디바이스 100%
+ * - 콘텐츠 좌우: 항상 var(--layout-drizzle-gutter-x) = 16px
+ */
+.viewport {
+  min-height: 100dvh;
+  width: 100%;
+  box-sizing: border-box;
+  background: var(--color-white);
+}
+
+.shell {
+  width: 100%;
+  max-width: min(100%, var(--layout-drizzle-mobile-max));
+  min-width: min(100%, var(--layout-drizzle-mobile-min));
+  margin: 0 auto;
+  min-height: 100dvh;
+  position: relative;
+  background: var(--color-white);
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  /* Main BG 높이를 셸 가로(cqw)에 맞춤 */
+  container-type: inline-size;
+  container-name: drizzle-shell;
+}
+
+@media (min-width: 600px) {
+  .viewport {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    background: var(--color-gray-02);
+  }
+
+  .shell {
+    width: var(--layout-hybrid-app-width);
+    max-width: var(--layout-hybrid-app-width);
+    min-width: var(--layout-hybrid-app-width);
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.06);
+  }
+}
+
+/* Figma 88:300 — Main BG.svg: 셸 가로 100% fill, 세로는 375:376 비율(뷰포트 높이 상한) */
+.gradient {
+  position: absolute;
+  inset-inline: 0;
+  top: 0;
+  width: 100%;
+  height: min(55vh, calc(100cqw * 376 / 375));
+  pointer-events: none;
+  z-index: 0;
+  background-color: var(--color-white);
+  background-image: url("../assets/main-bg.svg");
+  background-repeat: no-repeat;
+  background-position: left top;
+  background-size: 100% 100%;
+}
+
+.scroll {
+  position: relative;
+  z-index: 1;
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+  padding-left: var(--layout-drizzle-gutter-x);
+  padding-right: var(--layout-drizzle-gutter-x);
+  padding-top: calc(env(safe-area-inset-top, 0px) + 30px);
+  /* 네비(60) + 하단 34px 오프셋 + 여유 + 세이프 */
+  padding-bottom: calc(
+    60px + var(--layout-drizzle-nav-bottom-offset) + 24px + var(--runtime-safe-area-bottom)
+  );
+  box-sizing: border-box;
+}
+
+.stack {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  padding-bottom: 24px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* --- Weather Section (Fill container when wide) --- */
+.weatherSection {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: stretch;
+  box-sizing: border-box;
+}
+
+.weatherMetaRow {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  min-width: 0;
+}
+
+.weekday {
+  margin: 0;
+  color: var(--color-gray-06);
+  font-family: var(--typo-body-base-font-family);
+  font-size: var(--typo-body-base-font-size);
+  font-weight: var(--typo-body-base-font-weight);
+  line-height: var(--typo-body-base-line-height);
+  letter-spacing: var(--typo-body-base-letter-spacing);
+}
+
+.location {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex-shrink: 0;
+  min-width: 0;
+}
+
+.locationText {
+  margin: 0;
+  color: var(--color-gray-05);
+  font-family: var(--typo-body-sm-strong-font-family);
+  font-size: var(--typo-body-sm-strong-font-size);
+  font-weight: var(--typo-body-sm-strong-font-weight);
+  line-height: var(--typo-body-sm-strong-line-height);
+  letter-spacing: var(--typo-body-sm-strong-letter-spacing);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.weatherHeroRow {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  min-width: 0;
+}
+
+.tempBlock {
+  flex: 1 1 auto;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+.tempLine {
+  margin: 0;
+  color: var(--color-text-default);
+  font-family: var(--typo-title-strong-font-family);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: 0;
+}
+
+.tempDigit {
+  font-size: 50px;
+}
+
+.tempDegree {
+  font-size: 32.25px;
+  vertical-align: super;
+  margin-left: 1px;
+}
+
+.tempUnit {
+  font-size: 50px;
+  margin-left: 2px;
+}
+
+.weatherMessage {
+  margin: 0;
+  color: var(--color-gray-08);
+  font-family: var(--typo-heading-font-family);
+  font-size: var(--typo-heading-font-size);
+  font-weight: var(--typo-heading-font-weight);
+  line-height: var(--typo-heading-line-height);
+  letter-spacing: var(--typo-heading-letter-spacing);
+}
+
+.weatherVisual {
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  width: 111px;
+  max-width: 40%;
+  overflow: visible;
+}
+
+.subWeatherRow {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.subMetric {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.subMetricText {
+  margin: 0;
+  color: var(--color-gray-05);
+  font-family: var(--typo-body-sm-font-family);
+  font-size: var(--typo-body-sm-font-size);
+  font-weight: var(--typo-body-sm-font-weight);
+  line-height: var(--typo-body-sm-line-height);
+  letter-spacing: var(--typo-body-sm-letter-spacing);
+}
+
+/* --- Sections --- (구분선으로 리듬 — gap 대신 margin on .stackDivider) */
+/* Figma 124:646 — 날씨와 메인 콘텐츠 사이 구분선 없음, gap 60px */
+.sectionStack {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  width: 100%;
+  box-sizing: border-box;
+  margin-top: 60px;
+}
+
+.stackDivider {
+  width: 100%;
+  height: 0;
+  margin: 40px 0;
+  border: 0;
+  border-top: 1px solid var(--color-exhibit-media-placeholder);
+  flex-shrink: 0;
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.recommendedTitle {
+  margin: 0;
+  color: var(--color-gray-10);
+  font-family: var(--typo-title-font-family);
+  font-size: var(--typo-title-font-size);
+  font-weight: var(--typo-title-font-weight);
+  line-height: var(--typo-title-line-height);
+  letter-spacing: var(--typo-title-letter-spacing);
+}
+
+.sectionHeading {
+  margin: 0;
+  color: var(--color-text-default);
+  font-family: var(--typo-title-font-family);
+  font-size: var(--typo-title-font-size);
+  font-weight: var(--typo-title-font-weight);
+  line-height: var(--typo-title-line-height);
+  letter-spacing: var(--typo-title-letter-spacing);
+}
+
+.newList {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  box-sizing: border-box;
+  gap: 0;
+}
+
+/* Figma: 항목 간 30px + 구분선 (첫 행에는 선 없음) */
+.newListRow + .newListRow {
+  margin-top: 30px;
+  padding-top: 30px;
+  border-top: 1px solid var(--color-exhibit-media-placeholder);
+}
+
+.comingList {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* 하단 네비: 화면 기준 34px + safe-area, 좌우 19px, 셸과 동일 max-width로 정렬 */
+.navShell {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: calc(var(--layout-drizzle-nav-bottom-offset) + var(--runtime-safe-area-bottom));
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  pointer-events: none;
+  box-sizing: border-box;
+}
+
+.navShellInner {
+  width: 100%;
+  max-width: min(100%, var(--layout-drizzle-mobile-max));
+  padding-left: var(--runtime-nav-margin-x);
+  padding-right: var(--runtime-nav-margin-x);
+  box-sizing: border-box;
+  pointer-events: auto;
+}
+
+@media (min-width: 600px) {
+  .navShellInner {
+    max-width: var(--layout-hybrid-app-width);
+    padding-left: var(--layout-drizzle-nav-margin-x);
+    padding-right: var(--layout-drizzle-nav-margin-x);
+  }
+}

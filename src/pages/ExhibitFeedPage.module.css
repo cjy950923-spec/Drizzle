@@ -1,0 +1,105 @@
+.viewport {
+  min-height: 100dvh;
+  width: 100%;
+  box-sizing: border-box;
+  background: var(--color-white);
+}
+
+.shell {
+  width: 100%;
+  max-width: min(100%, var(--layout-drizzle-mobile-max));
+  min-width: min(100%, var(--layout-drizzle-mobile-min));
+  margin: 0 auto;
+  min-height: 100dvh;
+  position: relative;
+  background: var(--color-white);
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+@media (min-width: 600px) {
+  .viewport {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    background: var(--color-gray-02);
+  }
+
+  .shell {
+    width: var(--layout-hybrid-app-width);
+    max-width: var(--layout-hybrid-app-width);
+    min-width: var(--layout-hybrid-app-width);
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.06);
+  }
+}
+
+.headerSafe {
+  position: sticky;
+  top: 0;
+  z-index: 3;
+  background: var(--color-white);
+  padding-top: env(safe-area-inset-top, 0px);
+}
+
+.header {
+  height: 56px;
+  display: flex;
+  align-items: center;
+  background: var(--color-white);
+  padding: 0 16px;
+  box-sizing: border-box;
+  border-bottom: 0;
+}
+
+.title {
+  margin: 0;
+  color: var(--color-icon-default);
+  font-family: var(--typo-title-strong-font-family);
+  font-size: var(--typo-title-strong-font-size);
+  font-weight: var(--typo-title-strong-font-weight);
+  line-height: var(--typo-title-strong-line-height);
+  letter-spacing: var(--typo-title-strong-letter-spacing);
+}
+
+.scroll {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+  padding: 10px 16px 0;
+  padding-bottom: calc(
+    60px + var(--layout-drizzle-nav-bottom-offset) + 24px + var(--runtime-safe-area-bottom)
+  );
+  box-sizing: border-box;
+}
+
+.navShell {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: calc(var(--layout-drizzle-nav-bottom-offset) + var(--runtime-safe-area-bottom));
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  pointer-events: none;
+  box-sizing: border-box;
+}
+
+.navShellInner {
+  width: 100%;
+  max-width: min(100%, var(--layout-drizzle-mobile-max));
+  padding-left: var(--runtime-nav-margin-x);
+  padding-right: var(--runtime-nav-margin-x);
+  box-sizing: border-box;
+  pointer-events: auto;
+}
+
+@media (min-width: 600px) {
+  .navShellInner {
+    max-width: var(--layout-hybrid-app-width);
+    padding-left: var(--layout-drizzle-nav-margin-x);
+    padding-right: var(--layout-drizzle-nav-margin-x);
+  }
+}

@@ -1,0 +1,683 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Design System Preview (Static HTML)</title>
+
+    <!-- Design tokens -->
+    <link rel="stylesheet" href="./design-tokens/tokens.css" />
+    <link rel="stylesheet" href="./design-tokens/typography.css" />
+    <link rel="stylesheet" href="./design-tokens/icons.css" />
+
+    <style>
+      /* page layout */
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        background: var(--color-white);
+        color: var(--color-text-default);
+        font-family: var(--font-family-pretendard);
+      }
+      * {
+        box-sizing: border-box;
+      }
+      .page {
+        padding: 24px;
+      }
+      .section {
+        margin-top: 24px;
+      }
+      .grid {
+        display: grid;
+        gap: 12px;
+        margin-top: 12px;
+      }
+      .row {
+        display: flex;
+        gap: 16px;
+        align-items: center;
+        flex-wrap: wrap;
+        margin-top: 12px;
+      }
+
+      /* ========== Component styles (HTML-prefixed) ========== */
+
+      /* Button */
+      .Button_root {
+        width: 343px;
+        padding: 12px 30px;
+        border: 0;
+        border-radius: 6px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+      }
+      .Button_label {
+        color: var(--color-white);
+        text-align: center;
+      }
+      .Button_able {
+        background: var(--color-gray-10);
+      }
+      .Button_disabled {
+        background: var(--color-gray-02);
+        cursor: not-allowed;
+      }
+
+      /* SearchInput */
+      .SearchInput_root {
+        width: 343px;
+        padding: 14px 0;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        background: var(--color-white);
+      }
+      .SearchInput_icon {
+        width: 20px;
+        height: 20px;
+        flex: 0 0 auto;
+        display: block;
+      }
+      .SearchInput_input {
+        flex: 1 0 0;
+        min-width: 0;
+        border: 0;
+        outline: none;
+        background: transparent;
+        padding: 0;
+        color: var(--color-gray-10);
+      }
+      .SearchInput_input::placeholder {
+        color: var(--color-gray-03);
+      }
+      .SearchInput_pressed .SearchInput_input {
+        color: var(--color-gray-08);
+      }
+
+      /* ContentsTextInput */
+      .ContentsTextInput_root {
+        width: 343px;
+        height: 120px;
+        display: flex;
+        align-items: stretch;
+        background: var(--color-white);
+      }
+      .ContentsTextInput_textarea {
+        width: 100%;
+        height: 100%;
+        resize: none;
+        border: 0;
+        outline: none;
+        padding: 0;
+        background: transparent;
+        color: var(--color-gray-10);
+      }
+      .ContentsTextInput_textarea::placeholder {
+        color: var(--color-gray-03);
+      }
+      .ContentsTextInput_pressed .ContentsTextInput_textarea {
+        color: var(--color-gray-08);
+      }
+
+      /* CategoryBadge */
+      .CategoryBadge_root {
+        height: 21px;
+        padding: 3px 9px;
+        display: inline-flex;
+        align-items: center;
+        border: 1px solid var(--color-gray-02);
+        background: transparent;
+      }
+      .CategoryBadge_label {
+        font-family: var(--typo-component-caption-font-family);
+        font-size: var(--typo-component-caption-font-size);
+        font-weight: var(--typo-component-caption-font-weight);
+        letter-spacing: var(--typo-component-caption-letter-spacing);
+        line-height: 15px;
+        color: var(--color-gray-08);
+        white-space: nowrap;
+      }
+
+      /* NavigationBar */
+      .NavigationBar_root {
+        width: 306px;
+        height: 58px;
+        background: var(--color-white);
+        border-radius: 10000px;
+        box-shadow: 0 4px 24px 7px rgba(0, 0, 0, 0.06);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 24px;
+      }
+      .NavigationBar_item {
+        width: 24px;
+        background: transparent;
+        border: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 2px;
+      }
+      .NavigationBar_icon {
+        width: 24px;
+        height: 24px;
+        display: block;
+      }
+      .NavigationBar_label {
+        width: 24px;
+        text-align: center;
+      }
+      .NavigationBar_labelActive {
+        color: var(--color-gray-08);
+      }
+      .NavigationBar_labelInactive {
+        color: var(--color-gray-05);
+      }
+      .NavigationBar_review {
+        width: 42px;
+        height: 42px;
+        padding: 9px;
+        border-radius: 8px;
+        border: 0;
+        background: var(--color-gray-01);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .NavigationBar_reviewIcon {
+        width: 24px;
+        height: 24px;
+        display: block;
+      }
+
+      /* RecommendedExhibitCard */
+      .RecommendedExhibitCard_root {
+        width: 280px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+      .RecommendedExhibitCard_image {
+        width: 100%;
+        height: 360px;
+        background: var(--color-gray-02);
+      }
+      .RecommendedExhibitCard_meta {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+      }
+      .RecommendedExhibitCard_location {
+        color: var(--color-gray-08);
+      }
+
+      /* NewExhibitCard */
+      .NewExhibitCard_root {
+        display: flex;
+        align-items: center;
+        gap: 24px;
+      }
+      .NewExhibitCard_image {
+        width: 120px;
+        height: 120px;
+        background: var(--color-gray-02);
+        flex: 0 0 auto;
+      }
+      .NewExhibitCard_content {
+        width: 199px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+      .NewExhibitCard_title {
+        color: var(--color-gray-10);
+        padding-bottom: 8px;
+      }
+      .NewExhibitCard_details {
+        color: var(--color-gray-08);
+        padding-bottom: 12px;
+      }
+
+      /* ComingSoonExhibitCard */
+      .ComingSoonExhibitCard_root {
+        width: 339px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .ComingSoonExhibitCard_left {
+        display: flex;
+        align-items: center;
+        gap: 24px;
+      }
+      .ComingSoonExhibitCard_thumb {
+        width: 64px;
+        height: 64px;
+        background: var(--color-gray-02);
+        flex: 0 0 auto;
+      }
+      .ComingSoonExhibitCard_meta {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+      .ComingSoonExhibitCard_location {
+        color: var(--color-gray-08);
+      }
+      .ComingSoonExhibitCard_dday {
+        padding: 4px 8px;
+        background: var(--color-gray-02);
+      }
+
+      /* PhotoAdd */
+      .PhotoAdd_root {
+        width: 100px;
+        height: 100px;
+        padding: 23px 17px;
+        background: var(--color-white);
+        border: 1px dashed var(--color-gray-03);
+        display: flex;
+        align-items: flex-start;
+        justify-content: flex-start;
+      }
+      .PhotoAdd_inner {
+        width: 66px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 6px;
+      }
+      .PhotoAdd_icon {
+        width: 30px;
+        height: 30px;
+        display: block;
+      }
+      .PhotoAdd_label {
+        color: var(--color-gray-04);
+        white-space: nowrap;
+      }
+
+      /* PictureTile */
+      .PictureTile_root {
+        background: var(--color-gray-02);
+        position: relative;
+        overflow: hidden;
+      }
+      .PictureTile_placeholder {
+        width: 40px;
+        height: 40px;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        display: block;
+      }
+
+      /* Weather — static HTML uses <img>; SVG filters still clip in img. Use Vite preview for parity. */
+      .WeatherIcon_root {
+        width: 92px;
+        height: 92px;
+        overflow: visible;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        line-height: 0;
+      }
+      .WeatherIcon_img {
+        width: 92px;
+        height: 92px;
+        display: block;
+      }
+      .SubW_root {
+        width: 16px;
+        height: 16px;
+        position: relative;
+        flex-shrink: 0;
+        box-sizing: border-box;
+      }
+      .SubW_vec {
+        display: block;
+        width: 100%;
+        height: 100%;
+        max-width: none;
+      }
+      .SubW_h1w {
+        position: absolute;
+        inset: 8.33% 14.58%;
+      }
+      .SubW_h1i {
+        position: absolute;
+        top: -3.75%;
+        right: -4.41%;
+        bottom: -3.75%;
+        left: -4.41%;
+      }
+      .SubW_h2w {
+        position: absolute;
+        top: 50%;
+        right: 16.67%;
+        bottom: 37.5%;
+        left: 16.67%;
+      }
+      .SubW_h2i {
+        position: absolute;
+        top: -25%;
+        right: -4.69%;
+        bottom: -25%;
+        left: -4.69%;
+      }
+      .SubW_fw1w {
+        position: absolute;
+        top: 12.5%;
+        right: 50%;
+        bottom: 66.67%;
+        left: 8.33%;
+      }
+      .SubW_fw1i {
+        position: absolute;
+        top: -15%;
+        right: -7.5%;
+        bottom: -15%;
+        left: -7.5%;
+      }
+      .SubW_fw2w {
+        position: absolute;
+        top: 25%;
+        right: 8.33%;
+        bottom: 45.83%;
+        left: 16.67%;
+      }
+      .SubW_fw2i {
+        position: absolute;
+        top: -10.71%;
+        right: -4.17%;
+        bottom: -10.71%;
+        left: -4.17%;
+      }
+      .SubW_fw3w {
+        position: absolute;
+        top: 66.67%;
+        right: 33.33%;
+        bottom: 12.5%;
+        left: 8.33%;
+      }
+      .SubW_fw3i {
+        position: absolute;
+        top: -15%;
+        right: -5.36%;
+        bottom: -15%;
+        left: -5.36%;
+      }
+      .SubW_fw4w {
+        position: absolute;
+        top: 64.58%;
+        right: 12.5%;
+        bottom: 35.42%;
+        left: 79.17%;
+      }
+      .SubW_fw4i {
+        position: absolute;
+        top: -0.5px;
+        right: -37.5%;
+        bottom: -0.5px;
+        left: -37.5%;
+      }
+
+      /* Icon (token-based) */
+      .IconRow {
+        display: flex;
+        gap: 16px;
+        align-items: center;
+        flex-wrap: wrap;
+        margin-top: 12px;
+      }
+      .IconContainer {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page">
+      <div class="typo-title-strong">Design System Preview (Static HTML)</div>
+      <div class="typo-body-base" style="margin-top: 8px">
+        이 파일은 React 없이도 컴포넌트 형태를 확인할 수 있는 정적 HTML 프리뷰입니다.
+      </div>
+
+      <div class="section">
+        <div class="typo-heading">Button</div>
+        <div class="grid">
+          <button class="Button_root Button_able" type="button">
+            <span class="typo-heading Button_label">Button</span>
+          </button>
+          <button class="Button_root Button_disabled" type="button" disabled>
+            <span class="typo-heading Button_label">Button</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="typo-heading">Input</div>
+        <div class="grid">
+          <div class="typo-body-sm" style="color: var(--color-gray-08)">SearchInput / State=Default</div>
+          <label class="SearchInput_root">
+            <img class="SearchInput_icon" alt="" src="./src/assets/icon-search.svg" />
+            <input class="typo-heading-sm SearchInput_input" placeholder="전시를 검색해 주세요." />
+          </label>
+
+          <div class="typo-body-sm" style="color: var(--color-gray-08); margin-top: 8px">SearchInput / State=Pressed</div>
+          <label class="SearchInput_root SearchInput_pressed">
+            <img class="SearchInput_icon" alt="" src="./src/assets/icon-search.svg" />
+            <input class="typo-heading-sm SearchInput_input" value="텍스트 입력 중" />
+          </label>
+
+          <div class="typo-body-sm" style="color: var(--color-gray-08); margin-top: 8px">ContentsTextInput / State=Default</div>
+          <label class="ContentsTextInput_root">
+            <textarea class="typo-heading-sm ContentsTextInput_textarea" placeholder="전시 후기를 남겨주세요."></textarea>
+          </label>
+
+          <div class="typo-body-sm" style="color: var(--color-gray-08); margin-top: 8px">ContentsTextInput / State=Pressed</div>
+          <label class="ContentsTextInput_root ContentsTextInput_pressed">
+            <textarea class="typo-heading-sm ContentsTextInput_textarea">텍스트 입력 중</textarea>
+          </label>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="typo-heading">Badge</div>
+        <div style="margin-top: 12px">
+          <div class="CategoryBadge_root">
+            <span class="CategoryBadge_label">Category</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="typo-heading">Navigation</div>
+        <div class="grid" style="gap: 16px">
+          <div class="NavigationBar_root">
+            <button class="NavigationBar_item" type="button">
+              <img class="NavigationBar_icon" alt="" src="./src/assets/icon-home.svg" />
+              <span class="typo-component-caption NavigationBar_label NavigationBar_labelActive">홈</span>
+            </button>
+            <button class="NavigationBar_review" type="button">
+              <img class="NavigationBar_reviewIcon" alt="" src="./src/assets/icon-review.svg" />
+            </button>
+            <button class="NavigationBar_item" type="button">
+              <img class="NavigationBar_icon" alt="" src="./src/assets/icon-feed.svg" />
+              <span class="typo-component-caption NavigationBar_label NavigationBar_labelInactive">피드</span>
+            </button>
+          </div>
+
+          <div class="NavigationBar_root">
+            <button class="NavigationBar_item" type="button">
+              <img class="NavigationBar_icon" alt="" src="./src/assets/icon-home.svg" />
+              <span class="typo-component-caption NavigationBar_label NavigationBar_labelInactive">홈</span>
+            </button>
+            <button class="NavigationBar_review" type="button">
+              <img class="NavigationBar_reviewIcon" alt="" src="./src/assets/icon-review.svg" />
+            </button>
+            <button class="NavigationBar_item" type="button">
+              <img class="NavigationBar_icon" alt="" src="./src/assets/icon-feed.svg" />
+              <span class="typo-component-caption NavigationBar_label NavigationBar_labelActive">피드</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="typo-heading">Exhibit</div>
+        <div class="grid" style="gap: 16px">
+          <div class="RecommendedExhibitCard_root">
+            <div class="RecommendedExhibitCard_image"></div>
+            <div class="RecommendedExhibitCard_meta">
+              <div class="typo-heading-sm">전시명</div>
+              <div class="typo-body-sm RecommendedExhibitCard_location">전시장 위치</div>
+            </div>
+          </div>
+
+          <div class="NewExhibitCard_root">
+            <div class="NewExhibitCard_image"></div>
+            <div class="NewExhibitCard_content">
+              <div class="typo-heading-sm NewExhibitCard_title">전시명</div>
+              <div class="typo-body-sm NewExhibitCard_details">
+                <div>전시 장소</div>
+                <div>전시 기간</div>
+              </div>
+              <div class="CategoryBadge_root">
+                <span class="CategoryBadge_label">Category</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="ComingSoonExhibitCard_root">
+            <div class="ComingSoonExhibitCard_left">
+              <div class="ComingSoonExhibitCard_thumb"></div>
+              <div class="ComingSoonExhibitCard_meta">
+                <div class="typo-heading-sm">전시명</div>
+                <div class="typo-body-sm ComingSoonExhibitCard_location">전시 장소</div>
+              </div>
+            </div>
+            <div class="ComingSoonExhibitCard_dday">
+              <span class="typo-component-caption">D-5</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="typo-heading">Media</div>
+        <div class="row">
+          <div class="PhotoAdd_root">
+            <div class="PhotoAdd_inner">
+              <img class="PhotoAdd_icon" alt="" src="./src/assets/icon-camera.svg" />
+              <span class="typo-body-sm-strong PhotoAdd_label">+ 사진 올리기</span>
+            </div>
+          </div>
+
+          <div class="PictureTile_root" style="width: 164px; height: 164px">
+            <img class="PictureTile_placeholder" alt="" src="./src/assets/icon-picture-placeholder.svg" />
+          </div>
+          <div class="PictureTile_root" style="width: 164px; height: 205px">
+            <img class="PictureTile_placeholder" alt="" src="./src/assets/icon-picture-placeholder.svg" />
+          </div>
+          <div class="PictureTile_root" style="width: 163px; height: 244px">
+            <img class="PictureTile_placeholder" alt="" src="./src/assets/icon-picture-placeholder.svg" />
+          </div>
+          <div class="PictureTile_root" style="width: 163px; height: 92px">
+            <img class="PictureTile_placeholder" alt="" src="./src/assets/icon-picture-placeholder.svg" />
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="typo-heading">Weather</div>
+        <div class="row">
+          <div class="WeatherIcon_root">
+            <img class="WeatherIcon_img" alt="" src="./src/assets/weather/sunny.svg" />
+          </div>
+          <div class="SubW_root" title="humidity">
+            <div class="SubW_h1w">
+              <div class="SubW_h1i">
+                <img class="SubW_vec" alt="" src="./src/assets/weather/sub/humidity-1.svg" />
+              </div>
+            </div>
+            <div class="SubW_h2w">
+              <div class="SubW_h2i">
+                <img class="SubW_vec" alt="" src="./src/assets/weather/sub/humidity-2.svg" />
+              </div>
+            </div>
+          </div>
+          <div class="SubW_root" title="fast-wind">
+            <div class="SubW_fw1w">
+              <div class="SubW_fw1i"><img class="SubW_vec" alt="" src="./src/assets/weather/sub/fast-wind-1.svg" /></div>
+            </div>
+            <div class="SubW_fw2w">
+              <div class="SubW_fw2i"><img class="SubW_vec" alt="" src="./src/assets/weather/sub/fast-wind-2.svg" /></div>
+            </div>
+            <div class="SubW_fw3w">
+              <div class="SubW_fw3i"><img class="SubW_vec" alt="" src="./src/assets/weather/sub/fast-wind-3.svg" /></div>
+            </div>
+            <div class="SubW_fw4w">
+              <div class="SubW_fw4i"><img class="SubW_vec" alt="" src="./src/assets/weather/sub/fast-wind-4.svg" /></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="typo-heading">Icon</div>
+        <div class="IconRow">
+          <!-- Locate 16x16 (stroke token) -->
+          <img alt="" src="./src/assets/icons/icon-locate.svg" style="width: 16px; height: 16px; display: block; --stroke-0: var(--color-icon-locate-stroke)" />
+
+          <!-- Close 24x24 -->
+          <img alt="" src="./src/assets/icons/icon-close.svg" style="width: 24px; height: 24px; display: block; --fill-0: var(--color-icon-default)" />
+
+          <!-- Search 20x20 -->
+          <img alt="" src="./src/assets/icons/icon-search.svg" style="width: 20px; height: 20px; display: block; --fill-0: var(--color-icon-muted)" />
+
+          <!-- More text 32x18 -->
+          <span class="typo-body-sm" style="width: 32px; height: 18px; display: inline-flex; align-items: center; justify-content: center; color: var(--color-icon-more-text)">더보기</span>
+
+          <!-- Arrow_Left container 38x38 -->
+          <span
+            class="IconContainer"
+            style="
+              width: 38px;
+              height: 38px;
+              border-radius: 100px;
+              background: var(--icon-arrow-left-bg);
+              border: 1px solid var(--icon-arrow-left-border);
+              box-shadow: var(--icon-arrow-left-shadow);
+              backdrop-filter: blur(var(--icon-arrow-left-blur));
+              -webkit-backdrop-filter: blur(var(--icon-arrow-left-blur));
+            "
+          >
+            <img alt="" src="./src/assets/icons/icon-arrow-left.svg" style="width: 8px; height: 16px; display: block; --stroke-0: var(--color-icon-default)" />
+          </span>
+
+          <!-- Review (plus) container 42x42 -->
+          <span class="IconContainer" style="width: 42px; height: 42px; padding: 9px; border-radius: 8px; background: var(--color-gray-01)">
+            <img alt="" src="./src/assets/icons/icon-review.svg" style="width: 24px; height: 24px; display: block; --fill-0: var(--color-icon-muted)" />
+          </span>
+
+          <!-- Home 24x24 (light) -->
+          <img alt="" src="./src/assets/icons/icon-home.svg" style="width: 24px; height: 24px; display: block; --fill-0: var(--color-icon-light)" />
+
+          <!-- Feed 24x24 (light) -->
+          <img alt="" src="./src/assets/icons/icon-feed.svg" style="width: 24px; height: 24px; display: block; --fill-0: var(--color-icon-light)" />
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+

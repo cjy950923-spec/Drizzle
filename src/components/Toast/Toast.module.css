@@ -1,0 +1,27 @@
+/* Figma 122:764 Toast */
+.root {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  justify-self: start;
+  padding: 8px 16px;
+  border-radius: var(--radius-toast);
+  background: var(--color-gray-06);
+  color: var(--color-white);
+  width: fit-content;
+  min-width: fit-content;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.label {
+  margin: 0;
+  text-align: center;
+  white-space: nowrap;
+  color: var(--color-white);
+  font-family: var(--typo-body-base-font-family);
+  font-size: var(--typo-body-base-font-size);
+  font-weight: var(--typo-body-base-font-weight);
+  line-height: var(--typo-body-base-line-height);
+  letter-spacing: var(--typo-body-base-letter-spacing);
+}

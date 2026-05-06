@@ -1,0 +1,15 @@
+:root {
+  /* Icon color tokens (from Figma node 102:4781) */
+  --color-icon-default: #212121;
+  --color-icon-muted: #787878;
+  --color-icon-light: #e4e4e4;
+  --color-icon-locate-stroke: #8f9297;
+  --color-icon-more-text: #999592;
+
+  /* Arrow_Left container tokens */
+  --icon-arrow-left-bg: rgba(252, 253, 253, 0.7);
+  --icon-arrow-left-border: rgba(255, 255, 255, 0.4);
+  --icon-arrow-left-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.06);
+  --icon-arrow-left-blur: 0.5px;
+}
+

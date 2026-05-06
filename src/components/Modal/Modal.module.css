@@ -1,0 +1,73 @@
+.backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: var(--color-overlay-scrim);
+  box-sizing: border-box;
+}
+
+.panel {
+  width: 310px;
+  max-width: 100%;
+  padding: 16px;
+  box-sizing: border-box;
+  border-radius: var(--radius-modal);
+  background: var(--color-white);
+  box-shadow: var(--shadow-modal);
+}
+
+.title {
+  margin: 0;
+  color: var(--color-gray-10);
+  text-align: center;
+  font-family: var(--typo-heading-font-family);
+  font-size: var(--typo-heading-font-size);
+  font-weight: var(--typo-heading-font-weight);
+  line-height: var(--typo-heading-line-height);
+  letter-spacing: var(--typo-heading-letter-spacing);
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+}
+
+.textGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+  text-align: center;
+}
+
+.content {
+  margin: 0;
+  color: var(--color-gray-04);
+  font-family: var(--typo-body-base-font-family);
+  font-size: var(--typo-body-base-font-size);
+  font-weight: var(--typo-body-base-font-weight);
+  line-height: var(--typo-body-base-line-height);
+  letter-spacing: var(--typo-body-base-letter-spacing);
+}
+
+.actions {
+  display: flex;
+  gap: 10px;
+  width: 100%;
+}
+
+.actionButton {
+  width: auto !important;
+  min-width: 0;
+  flex: 1 1 0;
+}
+
+.actionButtonSecondary {
+  background: var(--color-gray-02) !important;
+}

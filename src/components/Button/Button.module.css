@@ -1,0 +1,42 @@
+.root {
+  width: 343px;
+  border: 0;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+/* Main CTA — Figma 93:4324 (Able), 93:4171 (Disable) */
+.cta {
+  padding: 12px 30px;
+  cursor: pointer;
+}
+
+.ctaAble {
+  background: var(--color-gray-10);
+}
+
+.ctaDisabled {
+  background: var(--color-gray-02);
+  cursor: not-allowed;
+}
+
+.root .labelCta {
+  color: var(--color-white);
+  text-align: center;
+}
+
+/* Link Button — Figma 13:4511 (single surface) */
+.link {
+  padding: 10px 30px;
+  gap: 10px;
+  background: var(--color-gray-01);
+  cursor: pointer;
+}
+
+.root .labelLink {
+  color: var(--color-icon-default);
+  text-align: center;
+}

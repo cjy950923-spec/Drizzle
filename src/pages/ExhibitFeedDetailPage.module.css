@@ -1,0 +1,212 @@
+.viewport {
+  min-height: 100dvh;
+  width: 100%;
+  box-sizing: border-box;
+  background: var(--color-white);
+}
+
+.shell {
+  width: 100%;
+  max-width: min(100%, var(--layout-drizzle-mobile-max));
+  min-width: min(100%, var(--layout-drizzle-mobile-min));
+  margin: 0 auto;
+  height: 100dvh;
+  min-height: 100dvh;
+  position: relative;
+  background: var(--color-white);
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+@media (min-width: 600px) {
+  .viewport {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    background: var(--color-gray-02);
+  }
+
+  .shell {
+    width: var(--layout-hybrid-app-width);
+    max-width: var(--layout-hybrid-app-width);
+    min-width: var(--layout-hybrid-app-width);
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.06);
+  }
+}
+
+.scroll {
+  position: relative;
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: calc(
+    60px + var(--layout-drizzle-nav-bottom-offset) + 24px + var(--runtime-safe-area-bottom)
+  );
+  box-sizing: border-box;
+}
+
+.flashOverlay {
+  position: absolute;
+  inset: 0;
+  background: var(--color-white);
+  z-index: 20;
+  pointer-events: none;
+  opacity: 0.95;
+  animation: feed-post-flash 220ms ease-out forwards;
+}
+
+@keyframes feed-post-flash {
+  0% {
+    opacity: 0.95;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.headerShell {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  z-index: 11;
+  display: flex;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.headerInner {
+  width: 100%;
+  max-width: min(100%, var(--layout-drizzle-mobile-max));
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-left: 16px;
+  padding-right: 16px;
+  height: calc(56px + env(safe-area-inset-top, 0px));
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  pointer-events: auto;
+}
+
+.heroSection {
+  position: relative;
+  width: 100%;
+}
+
+.backButton {
+  position: relative;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+.contentSection {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px 16px 0;
+  box-sizing: border-box;
+}
+
+.title {
+  margin: 0;
+  color: var(--color-icon-default);
+  font-family: var(--typo-heading-font-family);
+  font-size: var(--typo-heading-font-size);
+  font-weight: var(--typo-heading-font-weight);
+  line-height: var(--typo-heading-line-height);
+  letter-spacing: var(--typo-heading-letter-spacing);
+}
+
+.body {
+  margin: 0;
+  color: var(--color-gray-07);
+  font-family: var(--typo-body-sm-font-family);
+  font-size: var(--typo-body-sm-font-size);
+  font-weight: var(--typo-body-sm-font-weight);
+  line-height: var(--typo-body-sm-line-height);
+  letter-spacing: var(--typo-body-sm-letter-spacing);
+}
+
+.moreButton {
+  margin-left: 8px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--color-icon-more-text);
+  font-family: var(--typo-body-sm-font-family);
+  font-size: var(--typo-body-sm-font-size);
+  font-weight: var(--typo-body-sm-font-weight);
+  line-height: var(--typo-body-sm-line-height);
+  letter-spacing: var(--typo-body-sm-letter-spacing);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.linkButton {
+  width: 100%;
+}
+
+.feedSection {
+  margin-top: 20px;
+  padding: 0 16px;
+  box-sizing: border-box;
+}
+
+.navShell {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: calc(var(--layout-drizzle-nav-bottom-offset) + var(--runtime-safe-area-bottom));
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  pointer-events: none;
+  box-sizing: border-box;
+}
+
+.toastAnchor {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: calc(
+    var(--layout-drizzle-nav-bottom-offset) + var(--runtime-safe-area-bottom) + 60px + 20px
+  );
+  z-index: 12;
+  display: flex;
+  justify-content: center;
+  pointer-events: none;
+  opacity: 1;
+  transition: opacity 280ms ease;
+}
+
+.toastFading {
+  opacity: 0;
+}
+
+.navShellInner {
+  width: 100%;
+  max-width: min(100%, var(--layout-drizzle-mobile-max));
+  padding-left: var(--runtime-nav-margin-x);
+  padding-right: var(--runtime-nav-margin-x);
+  box-sizing: border-box;
+  pointer-events: auto;
+}
+
+@media (min-width: 600px) {
+  .headerInner {
+    max-width: var(--layout-hybrid-app-width);
+  }
+
+  .navShellInner {
+    max-width: var(--layout-hybrid-app-width);
+    padding-left: var(--layout-drizzle-nav-margin-x);
+    padding-right: var(--layout-drizzle-nav-margin-x);
+  }
+}
