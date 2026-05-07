@@ -175,6 +175,8 @@
   background: var(--color-white);
   border-top: 1px solid var(--color-gray-02);
   pointer-events: auto;
+  display: flex;
+  justify-content: center;
 }
 
 @media (min-width: 600px) {
@@ -186,7 +188,7 @@
 }
 
 .submitButton {
-  width: 100%;
+  width: min(343px, 100%);
 }
 
 .exitBackdrop {
