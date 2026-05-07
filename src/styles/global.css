@@ -4,25 +4,19 @@
 
 :root {
   --runtime-device-safe-area-bottom: 0px;
-  --runtime-safe-area-bottom: 10px;
+  --runtime-safe-area-bottom: 0px;
   --runtime-nav-margin-x: var(--layout-drizzle-nav-margin-x);
 }
 
 html[data-runtime="webview"] {
-  --runtime-device-safe-area-bottom: env(safe-area-inset-bottom, 0px);
-  --runtime-safe-area-bottom: calc(30px + var(--runtime-device-safe-area-bottom));
+  --runtime-device-safe-area-bottom: 0px;
+  --runtime-safe-area-bottom: 20px;
   --runtime-nav-margin-x: var(--layout-drizzle-nav-margin-x);
 }
 
 html[data-runtime="browser"] {
   --runtime-device-safe-area-bottom: 0px;
-  --runtime-safe-area-bottom: 20px;
-}
-
-@media (max-width: 599px) {
-  html[data-runtime="browser"] {
-    --runtime-safe-area-bottom: 20px;
-  }
+  --runtime-safe-area-bottom: 0px;
 }
 
 html,
