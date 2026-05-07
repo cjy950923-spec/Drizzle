@@ -16,10 +16,15 @@ html[data-runtime="webview"] {
 
 html,
 body {
+  height: 100%;
   margin: 0;
   padding: 0;
   background: var(--color-white);
   color: var(--color-text-default);
+}
+
+#root {
+  min-height: 100dvh;
 }
 
 * {
