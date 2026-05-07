@@ -21,6 +21,13 @@ html[data-device="mobile"] {
   --runtime-safe-area-bottom: 10px;
 }
 
+/* Fallback: mobile browsers should always use 10px. */
+@media (hover: none) and (pointer: coarse) {
+  html {
+    --runtime-safe-area-bottom: 10px;
+  }
+}
+
 html,
 body {
   height: 100%;
