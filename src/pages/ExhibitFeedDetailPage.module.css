@@ -42,9 +42,7 @@
   overflow-y: auto;
   overflow-x: hidden;
   -webkit-overflow-scrolling: touch;
-  padding-bottom: calc(
-    60px + var(--layout-drizzle-nav-bottom-offset) + 24px + var(--runtime-safe-area-bottom)
-  );
+  padding-bottom: calc(60px + 24px + var(--runtime-safe-area-bottom));
   box-sizing: border-box;
 }
 
@@ -163,7 +161,7 @@
   position: fixed;
   left: 0;
   right: 0;
-  bottom: calc(var(--runtime-nav-bottom-offset) + var(--runtime-safe-area-bottom));
+  bottom: var(--runtime-safe-area-bottom);
   z-index: 10;
   display: flex;
   justify-content: center;
@@ -175,9 +173,7 @@
   position: fixed;
   left: 0;
   right: 0;
-  bottom: calc(
-    var(--runtime-nav-bottom-offset) + var(--runtime-safe-area-bottom) + 60px + 20px
-  );
+  bottom: calc(var(--runtime-safe-area-bottom) + 60px + 20px);
   z-index: 12;
   display: flex;
   justify-content: center;
