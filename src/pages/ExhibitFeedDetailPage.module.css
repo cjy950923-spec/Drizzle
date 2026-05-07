@@ -163,7 +163,7 @@
   position: fixed;
   left: 0;
   right: 0;
-  bottom: calc(var(--layout-drizzle-nav-bottom-offset) + var(--runtime-safe-area-bottom));
+  bottom: calc(var(--runtime-nav-bottom-offset) + var(--runtime-safe-area-bottom));
   z-index: 10;
   display: flex;
   justify-content: center;
@@ -176,7 +176,7 @@
   left: 0;
   right: 0;
   bottom: calc(
-    var(--layout-drizzle-nav-bottom-offset) + var(--runtime-safe-area-bottom) + 60px + 20px
+    var(--runtime-nav-bottom-offset) + var(--runtime-safe-area-bottom) + 60px + 20px
   );
   z-index: 12;
   display: flex;

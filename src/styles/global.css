@@ -4,12 +4,14 @@
 
 :root {
   --runtime-safe-area-bottom: 0px;
-  --runtime-nav-margin-x: 0px;
+  --runtime-nav-margin-x: var(--layout-drizzle-nav-margin-x);
+  --runtime-nav-bottom-offset: 10px;
 }
 
 html[data-runtime="webview"] {
   --runtime-safe-area-bottom: env(safe-area-inset-bottom, 0px);
   --runtime-nav-margin-x: var(--layout-drizzle-nav-margin-x);
+  --runtime-nav-bottom-offset: var(--layout-drizzle-nav-bottom-offset);
 }
 
 html,
