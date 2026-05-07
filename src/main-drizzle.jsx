@@ -25,8 +25,7 @@ const isStandalone =
   window.navigator.standalone === true;
 const hasNativeBridge =
   typeof window.ReactNativeWebView !== "undefined" ||
-  typeof window.flutter_inappwebview !== "undefined" ||
-  typeof window.webkit?.messageHandlers !== "undefined";
+  typeof window.flutter_inappwebview !== "undefined";
 const isWebViewRuntime =
   isIOSWebView || isAndroidWebView || isStandalone || hasNativeBridge;
 
