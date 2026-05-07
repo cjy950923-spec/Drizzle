@@ -4,19 +4,21 @@
 
 :root {
   --runtime-device-safe-area-bottom: 0px;
-  --runtime-safe-area-bottom: 0px;
+  --runtime-safe-area-bottom: 30px;
   --runtime-nav-margin-x: var(--layout-drizzle-nav-margin-x);
 }
 
 html[data-runtime="webview"] {
   --runtime-device-safe-area-bottom: 0px;
-  --runtime-safe-area-bottom: 10px;
   --runtime-nav-margin-x: var(--layout-drizzle-nav-margin-x);
 }
 
 html[data-runtime="browser"] {
   --runtime-device-safe-area-bottom: 0px;
-  --runtime-safe-area-bottom: 30px;
+}
+
+html[data-device="mobile"] {
+  --runtime-safe-area-bottom: 10px;
 }
 
 html,
