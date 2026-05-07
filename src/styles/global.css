@@ -10,7 +10,7 @@
 
 html[data-runtime="webview"] {
   --runtime-device-safe-area-bottom: 0px;
-  --runtime-safe-area-bottom: 0px;
+  --runtime-safe-area-bottom: 10px;
   --runtime-nav-margin-x: var(--layout-drizzle-nav-margin-x);
 }
 
