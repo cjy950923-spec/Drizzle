@@ -85,6 +85,7 @@ export function FeedMediaGrid({ posts, onPostClick, className }) {
                 variant={post.variant}
                 width={post.width}
                 height={post.height}
+                imageUrl={post.imageUrl}
               />
             </button>
           ))}

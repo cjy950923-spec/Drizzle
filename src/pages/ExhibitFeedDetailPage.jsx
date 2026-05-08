@@ -12,6 +12,7 @@ const COLLAPSED_CONTENT_LENGTH = 86;
 export function ExhibitFeedDetailPage({
   posts,
   selectedPostId,
+  transientPost,
   onSelectPost,
   onBackToFeed,
   onNavigateHome,
@@ -47,10 +48,10 @@ export function ExhibitFeedDetailPage({
     }
   };
 
-  const currentPost = useMemo(
-    () => posts.find((post) => post.id === selectedPostId) ?? posts[0],
-    [posts, selectedPostId],
-  );
+  const currentPost = useMemo(() => {
+    if (selectedPostId === transientPost?.id) return transientPost;
+    return posts.find((post) => post.id === selectedPostId) ?? posts[0];
+  }, [posts, selectedPostId, transientPost]);
 
   useEffect(() => {
     setExpanded(false);

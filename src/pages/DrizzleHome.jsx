@@ -8,31 +8,48 @@ import { WeatherIcon } from "../components/WeatherIcon/WeatherIcon.jsx";
 import { RecommendedCarousel } from "./RecommendedCarousel.jsx";
 import styles from "./DrizzleHome.module.css";
 
+import posterSomyeolUrl from "../assets/exhibit-posters/poster-somyeol.png";
+import posterDamienHirstUrl from "../assets/exhibit-posters/poster-damien-hirst.png";
+import posterMmcaKoreanModernUrl from "../assets/exhibit-posters/poster-mmca-korean-modern.png";
+import posterGeuraedoUrl from "../assets/exhibit-posters/poster-geuraedo.png";
+import posterStorageRenewalUrl from "../assets/exhibit-posters/poster-storage-renewal.png";
+import posterMmcaAcademySeason2Url from "../assets/exhibit-posters/poster-mmca-academy-season2.png";
+import posterArtAndLunch2026Url from "../assets/exhibit-posters/poster-art-and-lunch-2026.png";
+import posterSeniorWalkUrl from "../assets/exhibit-posters/poster-senior-walk.png";
+import poster1945KorJpnUrl from "../assets/exhibit-posters/poster-1945-kor-jpn.png";
+import posterConceptArtUrl from "../assets/exhibit-posters/poster-concept-art.png";
+import posterFiveSensesUrl from "../assets/exhibit-posters/poster-five-senses.png";
+
 const RECOMMENDED = [
   {
     id: "rec-1",
     title: "소멸의 시학: 삭는 미술에 대하여",
     location: "국립현대미술관",
+    imageUrl: posterSomyeolUrl,
   },
   {
     id: "rec-2",
     title: "데이미언 허스트",
     location: "국립현대미술관",
+    imageUrl: posterDamienHirstUrl,
   },
   {
     id: "rec-3",
     title: "한국의 미술: 조선에서 현대까지",
     location: "국립중앙박물관",
+    imageUrl: posterMmcaKoreanModernUrl,
   },
   {
     id: "rec-4",
     title: "빛의 조각: 미디어 아트 특별전",
     location: "DDP 뮤지엄",
+    imageUrl: posterGeuraedoUrl,
   },
   {
     id: "rec-5",
     title: "도시와 자연: 사진으로 보는 서울",
     location: "서울시립미술관",
+    imageUrl: posterStorageRenewalUrl,
   },
 ];
 
@@ -43,6 +60,7 @@ const NEW_EXHIBITS = [
     place: "서울 다원공간",
     period: "2026-04-15 ~ 2026-06-24",
     category: "교육",
+    imageUrl: posterMmcaAcademySeason2Url,
   },
   {
     id: "new-2",
@@ -50,6 +68,7 @@ const NEW_EXHIBITS = [
     place: "서울 열린교육공간+",
     period: "2026-04-08 ~ 2026-06-10",
     category: "전시",
+    imageUrl: posterArtAndLunch2026Url,
   },
   {
     id: "new-3",
@@ -57,6 +76,7 @@ const NEW_EXHIBITS = [
     place: "서울 1층, 로비",
     period: "2026-03-17 ~ 2026-11-20",
     category: "교육",
+    imageUrl: posterSeniorWalkUrl,
   },
 ];
 
@@ -66,18 +86,21 @@ const COMING_SOON = [
     title: "1945년 이후 한·일 미술",
     location: "과천 1층, 1, 2 전시실, 중앙홀 및 조각공원",
     dDayText: "D-5",
+    imageUrl: poster1945KorJpnUrl,
   },
   {
     id: "cs-2",
     title: "이것은 개념미술이 (아니)다",
     location: "서울 지하1층, 6, 7전시실, 지하1층, 전시마당",
     dDayText: "D-5",
+    imageUrl: posterConceptArtUrl,
   },
   {
     id: "cs-3",
     title: "오~감각미술관",
     location: "어린이미술관",
     dDayText: "D-5",
+    imageUrl: posterFiveSensesUrl,
   },
 ];
 
@@ -157,6 +180,7 @@ export function DrizzleHome({
                       key={item.id}
                       title={item.title}
                       location={item.location}
+                      imageUrl={item.imageUrl}
                     />
                   ))}
                 </RecommendedCarousel>
@@ -176,6 +200,7 @@ export function DrizzleHome({
                         place={item.place}
                         period={item.period}
                         category={item.category}
+                        imageUrl={item.imageUrl}
                       />
                     </div>
                   ))}
@@ -195,6 +220,7 @@ export function DrizzleHome({
                       title={item.title}
                       location={item.location}
                       dDayText={item.dDayText}
+                      imageUrl={item.imageUrl}
                     />
                   ))}
                 </div>

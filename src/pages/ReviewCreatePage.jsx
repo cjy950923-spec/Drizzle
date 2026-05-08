@@ -8,23 +8,34 @@ import { PictureTile } from "../components/PictureTile/PictureTile.jsx";
 import { SearchInput } from "../components/SearchInput/SearchInput.jsx";
 import styles from "./ReviewCreatePage.module.css";
 
-const SAMPLE_IMAGE_URL =
-  "https://www.figma.com/api/mcp/asset/9c4374ea-0fc7-4a01-8b41-0994cf3b6adb";
+const FEED_PHOTOS = Object.values(
+  import.meta.glob("../assets/exhibit-feed-photos/*.{jpg,jpeg,png,webp}", {
+    eager: true,
+    import: "default",
+  }),
+);
 
 /** Figma 102:4785 — 전시 후기 등록 (미입력/입력) */
 export function ReviewCreatePage({ onClose, onSubmit }) {
   const [searchValue, setSearchValue] = useState("");
   const [reviewValue, setReviewValue] = useState("");
   const [photoAdded, setPhotoAdded] = useState(false);
+  const [photoUrl, setPhotoUrl] = useState(undefined);
   const [exitConfirmOpen, setExitConfirmOpen] = useState(false);
 
   const canSubmit = useMemo(
     () =>
       searchValue.trim().length > 0 &&
       reviewValue.trim().length > 0 &&
-      photoAdded,
-    [searchValue, reviewValue, photoAdded],
+      photoAdded &&
+      Boolean(photoUrl),
+    [searchValue, reviewValue, photoAdded, photoUrl],
   );
+
+  const pickRandomFeedPhoto = () => {
+    if (FEED_PHOTOS.length === 0) return undefined;
+    return FEED_PHOTOS[Math.floor(Math.random() * FEED_PHOTOS.length)];
+  };
 
   return (
     <div className={styles.viewport}>
@@ -75,19 +86,27 @@ export function ReviewCreatePage({ onClose, onSubmit }) {
                 <button
                   type="button"
                   className={styles.photoPreviewButton}
-                  onClick={() => setPhotoAdded(false)}
+                  onClick={() => {
+                    setPhotoAdded(false);
+                    setPhotoUrl(undefined);
+                  }}
                   aria-label="사진 제거"
                 >
                   <PictureTile
                     variant="1-1"
                     width={100}
                     height={100}
-                    imageUrl={SAMPLE_IMAGE_URL}
+                    imageUrl={photoUrl}
                   />
                 </button>
               ) : (
                 <PhotoAdd
-                  onClick={() => setPhotoAdded(true)}
+                  onClick={() => {
+                    const next = pickRandomFeedPhoto();
+                    if (!next) return;
+                    setPhotoUrl(next);
+                    setPhotoAdded(true);
+                  }}
                   className={styles.photoAdd}
                 />
               )}
@@ -106,7 +125,7 @@ export function ReviewCreatePage({ onClose, onSubmit }) {
                   exhibitName: searchValue.trim(),
                   review: reviewValue.trim(),
                   photoAdded,
-                  imageUrl: SAMPLE_IMAGE_URL,
+                  imageUrl: photoUrl,
                 })
               }
             >
