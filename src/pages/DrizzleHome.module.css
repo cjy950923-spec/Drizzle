@@ -69,7 +69,7 @@
   -webkit-overflow-scrolling: touch;
   padding-left: var(--layout-drizzle-gutter-x);
   padding-right: var(--layout-drizzle-gutter-x);
-  padding-top: calc(env(safe-area-inset-top, 0px) + 30px);
+  padding-top: 0;
   /* 네비(60) + 하단 34px 오프셋 + 여유 + 세이프 */
   padding-bottom: calc(60px + 24px + var(--runtime-safe-area-bottom));
   box-sizing: border-box;
@@ -82,6 +82,33 @@
   padding-bottom: 24px;
   width: 100%;
   box-sizing: border-box;
+}
+
+/* Figma 164:2602 — 상단 배너 (토큰 매핑 없이 값 그대로) */
+.topBanner {
+  width: 100%;
+  box-sizing: border-box;
+  background: #313131;
+  min-height: 33px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: calc(env(safe-area-inset-top, 0px) + 4px) 0 4px;
+  margin-bottom: 30px;
+  border: 0;
+  cursor: pointer;
+}
+
+.topBannerText {
+  margin: 0;
+  color: #ffffff;
+  font-family: "Pretendard", sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.5;
+  text-align: center;
+  white-space: nowrap;
 }
 
 /* --- Weather Section (Fill container when wide) --- */

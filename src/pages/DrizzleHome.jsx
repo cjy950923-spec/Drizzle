@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { ComingSoonExhibitCard } from "../components/ComingSoonExhibitCard/ComingSoonExhibitCard.jsx";
 import { Icon } from "../components/Icon/Icon.jsx";
 import { NavigationBar } from "../components/NavigationBar/NavigationBar.jsx";
@@ -5,6 +6,7 @@ import { NewExhibitCard } from "../components/NewExhibitCard/NewExhibitCard.jsx"
 import { RecommendedExhibitCard } from "../components/RecommendedExhibitCard/RecommendedExhibitCard.jsx";
 import { SubWeatherIcon } from "../components/SubWeatherIcon/SubWeatherIcon.jsx";
 import { WeatherIcon } from "../components/WeatherIcon/WeatherIcon.jsx";
+import { BannerInfoModal } from "../components/BannerInfoModal/BannerInfoModal.jsx";
 import { RecommendedCarousel } from "./RecommendedCarousel.jsx";
 import styles from "./DrizzleHome.module.css";
 
@@ -110,6 +112,7 @@ export function DrizzleHome({
   onNavigateFeed,
   onNavigateReviewCreate,
 }) {
+  const [bannerModalOpen, setBannerModalOpen] = useState(false);
   const weekdayLabel = new Date().toLocaleDateString("ko-KR", {
     weekday: "long",
   });
@@ -118,6 +121,17 @@ export function DrizzleHome({
     <div className={styles.viewport}>
       <div className={styles.shell}>
         <div className={styles.gradient} aria-hidden />
+
+        <button
+          type="button"
+          className={styles.topBanner}
+          aria-label="상단 배너"
+          onClick={() => setBannerModalOpen(true)}
+        >
+          <p className={styles.topBannerText}>
+            Drizzle App 기능을 경험해 볼 수 있는 데모용 페이지입니다.
+          </p>
+        </button>
 
         <main className={styles.scroll}>
           <div className={styles.stack}>
@@ -240,6 +254,11 @@ export function DrizzleHome({
             />
           </div>
         </div>
+
+        <BannerInfoModal
+          open={bannerModalOpen}
+          onClose={() => setBannerModalOpen(false)}
+        />
       </div>
     </div>
   );
