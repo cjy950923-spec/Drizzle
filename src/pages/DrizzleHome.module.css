@@ -213,14 +213,15 @@
   letter-spacing: var(--typo-heading-letter-spacing);
 }
 
+/* Figma weather info 열 111px; 메인 WeatherIcon 슬롯은 컴포넌트 기본 92×92 — max-width %로 줄이면 슬롯보다 좁아져 아이콘 크기가 달라 보임 */
 .weatherVisual {
-  flex: 0 0 auto;
+  flex: 0 0 111px;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 10px;
   width: 111px;
-  max-width: 40%;
+  min-width: 111px;
   overflow: visible;
 }
 
